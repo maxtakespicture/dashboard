@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    
+    <!--=======================HEAD=======================-->
+    
+    <head>
+        
+    <!--~~~~~~~~~~~~~META~~~~~~~~~~~~~~~~~-->
+        <title>Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Fancy dashboard">
+        <meta name="author" content="Max le Roux">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <!--~~~~~~~~~~~~~LINKS & SCRIPTS ~~~~~-->
+        
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,900|Raleway:200,400,600,900" rel="stylesheet">
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.0/chartist.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.0/chartist.min.js"></script>
+        
+    </head>
+
+    <!--=======================BODY=======================-->
+    
+    <body>
+     <div id="app">
+        
+    <!--~~~~~~~~~~~~~SIDEBAR~~~~~~~~~~~~~~-->
+        <div class="sidebar-holder col-d-1 col-t-2 col-m-12"></div>
+        <div class="sidebar col-d-1 col-t-2 col-m-12">
+            <div class="logo">
+                <h1><em>DASH</em><br class="m-hidden">BOARD</h1>
+            </div>           
+                <link rel="stylesheet" href="css/dark.css">
+                <link :disabled="!checked" rel="stylesheet" href="css/light.css">
+                <div class="switch-holder">
+                    <h4>Theme</h4>
+                        <label for="change" class="switch">
+                        <input type="checkbox" id="change" value="change" v-model="checked">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            
+            <ul>
+                <li class="nav">
+                    <h5><a href="#data">Table</a></h5>
+                </li>                
+                <li class="nav">
+                    <h5><a href="#widgets">Widgets</a></h5>
+                </li>
+                <li class="nav">
+                    <h5><a href="#charts">Charts</a></h5>
+                </li>  
+                <li class="nav">
+                    <h5><a href="#news">News</a></h5>
+                </li>                  
+            </ul>            
+        </div>
+           
+    <div class="container col-d-11 col-t-10 col-m-12"> <!--container-->
+                
+    <!--~~~~~~~~~~~~~NAV~~~~~~~~~~~~~~~~~~-->
+    <div class="forced-margin col-m-12"><!--creates a margin between elements and edges of container-->
+        <div class="nav-holder col-d-12 col-t-12 col-m-12"></div>
+        <nav class="col-d-12 col-t-12 col-m-12">
+            <ul>
+                <li><a href="#">Stats</a></li>
+                <li><a href="#">Settings</a></li>   
+                <li>Welcome, <a href="#" id="user">{{username}}</a></li>
+            </ul>
+        </nav>
+        <div class="clearfix"></div>
+        
+        <div class="namebox">
+                <p>Not you? Enter your name here:</p>
+                <form>
+                    <input type="text" name="name" v-model="username">
+                </form>
+        </div>       
+               
+    <!--~~~~~~~~~~~~~TABLE~~~~~~~~~~~-->
+        <section class="sec-table">
+        <div id="data"></div><!--anchor-->
+            <div class="table-holder col-d-12 col-t-12 col-m-12">
+                <table class="table">
+                    <tr class="title-row">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Colour</th>
+                    </tr>
+                    <template v-for="value in tabledata">
+                        <tr>
+                            <td>{{value.id}}</td>
+                            <td>{{value.name}}</td>
+                            <td>{{value.city}}</td>
+                            <td>{{value.color}}</td>
+                        </tr>
+                    </template>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </section>
+        
+    <!--~~~~~~~~~~~~~WIDGETS~~~~~~~~~~~~~~-->
+        <section class="sec-widgets">
+        <div id="widgets"></div><!--anchor-->
+            <article class="col-d-3 col-t-6 col-m-6">
+                <div class="art-wid">
+                    <h3>SALE</h3>
+                    <p>Shares now on sale</p>
+                    <img :hidden="checked" class="w-img" src="img/projector.png">
+                    <img :hidden="!checked" class="w-img" src="img/projector-l.png">
+                </div>
+            </article>
+            <article class="col-d-3 col-t-6 col-m-6">
+                <div class="art-wid">
+                    <h3>SPIN</h3>
+                    <p>Get wild</p>
+                    <img :hidden="checked" class="w-img" src="img/pinwheel.png">
+                    <img :hidden="!checked" class="w-img" src="img/pinwheel-l.png">
+                </div>
+            </article>
+            <article class="col-d-3 col-t-6 col-m-6">
+                <div class="art-wid">
+                    <h3>SHINE</h3>
+                    <p>Change it up</p>
+                    <img :hidden="checked" class="w-img" src="img/pantone.png">
+                    <img :hidden="!checked" class="w-img" src="img/pantone-l.png">
+                </div>
+            </article>      
+            <article class="col-d-3 col-t-6 col-m-6">
+                <div class="art-wid">
+                    <h3>SAVE</h3>
+                    <p>It's about time</p>
+                    <img :hidden="checked" class="w-img" src="img/houses.png">
+                    <img :hidden="!checked" class="w-img" src="img/houses-l.png">
+                </div>
+            </article>
+            <div class="clearfix"></div>
+        </section>
+    
+    <!--~~~~~~~~~~~~~CHARTS~~~~~~~~~~~~~~~~~-->    
+        <section class="sec-chart">
+        <div id="charts"></div><!--anchor-->
+            <div class="art-chart col-d-7 col-t-6 col-m-12">
+                <h2>GRAPH</h2>
+                <div class="ct-chart1 ct-perfect-fourth">
+                </div>
+            </div>
+            <div class="col-d-1 t-hidden m-hidden small"></div>
+            <div class="art-chart col-d-4 col-t-6 col-m-12">
+                <h2>PIE CHART</h2>
+                <div class="ct-chart2 ct-perfect-fourth">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </section>
+        
+    <!--~~~~~~~~~~~~~NEWS~~~~~~~~~~~~~~~~~-->
+        <section class="sec-news">
+        <div id="news"></div><!--anchor-->
+            <template v-for="article in newsarticle">
+                <div class="col-m-1 small"></div><!--buffer for mobile spacing-->
+                <div class="col-d-4 col-t-4 col-m-10">
+                    <div class="art-news">
+                        <h4>{{article.h}}</h4>
+                        <p class="p-news">{{article.copy}}</p>
+                        <a class="btn" href="#">READ MORE</a>
+                    </div>      
+                </div>
+                <div class="col-m-1 small"></div>
+                <div class="clearfix d-hidden"></div>
+            </template>
+            
+        </section>
+        
+        <div class="icon-licence">Icons made by <a href="https://www.flaticon.com/authors/pixel-buddha">Pixel Buddha</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a> and licensed by <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC 3.0 BY</a></div>
+    
+    </div> <!--end of forced margin-->
+    </div> <!--end of container-->
+        
+    <!--~~~~~~~~~~~~~SCRIPTS~~~~~~~~~~~~~~~~~-->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.min.js"></script>
+    <script src="js/application.js"></script>
+    
+    </div> <!--end of app-->
+    </body>
+
+</html>

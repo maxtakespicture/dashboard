@@ -1,0 +1,209 @@
+@import "_base.scss";
+
+/*================================= VARIABLES ===============================*/
+
+/*~~~~~~~~~~~~~~ COLOURS ~~~~~~~~~~~~~~~~~*/
+
+$darkest    : #dedede;
+$medium     : #efefef;
+$lightest   : #ffffff;
+$colour-1   : #e47e30;
+$colour-2   : #e54d42;
+$colour-3   : #ed727c;
+$colour-4   : #f47cc2;
+$colour-5   : #f8cee7;
+$opacity    : 0.3;
+$body-colour: #3e3e3e;
+
+
+body {
+    color: $body-colour;
+    background-color: $lightest;
+}
+
+.container {
+    background-color: $lightest;
+}
+
+h1 {
+    em {
+        color: $colour-2;    
+    }
+}
+
+h2 {
+    color: $colour-3;
+}
+
+h3 {
+    color: $colour-2;
+}
+
+h4 {
+    color: $colour-4;
+}
+
+h5 {
+    color: $colour-4;
+}
+
+a {
+    color: $colour-1;
+}
+
+a:hover {
+    color: $colour-4;
+    transition: 0.2s all ease;
+}
+
+.sidebar {
+    background-color: $medium;
+}
+
+.switch-holder {
+    border-bottom: 1px solid $colour-2;
+}
+
+input:checked + .slider {
+    background-color: $colour-3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px $colour-3;
+}
+
+.logo {
+    border-bottom: solid 1px $colour-1;
+}
+
+
+nav {
+    background-color: $darkest;
+    a {
+       color: $colour-2;
+    }
+}
+
+#user {
+    color: $colour-4;
+}
+
+.sec-table {
+    background-color: $lightest;
+}
+
+.table-holder{
+    background-color: $lightest;
+}
+
+table {
+    @include box-shadow($opacity);
+}
+
+.title-row {
+    background-color: $colour-3;
+}
+
+.sec-widgets {
+    background-color: $lightest;
+}
+
+.art-wid {
+    background-color: $lightest;
+    @include box-shadow($opacity);
+    
+    p {
+        border-bottom: 1px solid $body-colour;
+    }
+}
+
+.art-wid:hover {
+    background-color: $colour-5;
+        
+    h3, p {
+        color: $colour-4;
+    }    
+}
+
+.sec-chart {
+    margin: 40px 0;
+    background-color: $darkest;
+}
+
+.art-chart {
+    @include box-shadow($opacity);
+    background-color: $lightest;
+}
+
+.ct-series-a .ct-line,
+.ct-series-a .ct-point {
+  stroke: $colour-2;
+}
+
+.ct-series-b .ct-line,
+.ct-series-b .ct-point {
+  stroke: $colour-3;
+}
+
+.ct-series-c .ct-line,
+.ct-series-c .ct-point {
+  stroke: $colour-4;
+}
+
+.ct-series-a .ct-slice-pie {
+  fill: $colour-1;
+}
+
+.ct-series-b .ct-slice-pie {
+  fill: $colour-4;
+}
+
+.ct-series-c .ct-slice-pie {
+  fill: $colour-3;
+}
+
+.sec-news {
+    background-color: $lightest;
+}
+
+.art-news {
+    @include box-shadow($opacity);
+    background-color: $lightest;
+}
+
+
+.btn {
+    @include button($colour-1, $colour-2);
+}
+
+.btn:hover {
+    @include hover-button($colour-3, $colour-4);
+}
+
+
+.icon-licence {
+    color: $colour-4;
+    
+    a {
+        color: colour-4;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

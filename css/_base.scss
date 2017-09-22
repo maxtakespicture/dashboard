@@ -1,0 +1,852 @@
+/*================================= VARIABLES ===============================*/
+
+/*~~~~~~~~~~~~~~ COLOURS ~~~~~~~~~~~~~~~~~*/
+
+$darkest    : #1d1d1d;
+$medium     : #2b2b2b;
+$lightest   : #4f4f4f;
+$colour-1   : #39ca74;
+$colour-2   : #1ABC9C;
+$colour-3   : #3a99d8;
+$colour-4   : #7461c2;
+$colour-5   : #77cbba;
+$opacity    : 1;
+$body-colour: #9a9a9a;
+
+/*~~~~~~~~~~~~~~ BOX SHADOW ~~~~~~~~~~~~~~*/
+
+@mixin box-shadow($opacity) {
+    -webkit-box-shadow: 0px 0px 68px -14px rgba(0,0,0,$opacity);
+    -moz-box-shadow: 0px 0px 68px -14px rgba(0,0,0,$opacity);
+    box-shadow: 0px 0px 68px -14px rgba(0,0,0,$opacity);
+}
+
+@mixin hover-shadow($opacity) {
+    -webkit-box-shadow: 0px 0px 68px -14px rgba(255,255,255, $opacity);
+    -moz-box-shadow: 0px 0px 68px -14px rgba(255,255,255, $opacity);
+    box-shadow: 0px 0px 68px -14px rgba(255,255,255, $opacity);
+}
+
+@mixin button($colour-1, $colour-2) {
+    background: $colour-1;
+    background-image: -webkit-linear-gradient(top, $colour-1, $colour-2);
+    background-image: -moz-linear-gradient(top, $colour-1, $colour-2);
+    background-image: -ms-linear-gradient(top, $colour-1, $colour-2);
+    background-image: -o-linear-gradient(top, $colour-1, $colour-2);
+    background-image: linear-gradient(to bottom, $colour-1, $colour-2);
+}
+
+@mixin hover-button($colour-3, $colour-4) {
+    background: $colour-3;
+    background-image: -webkit-linear-gradient(top, $colour-3, $colour-4);
+    background-image: -moz-linear-gradient(top, $colour-3, $colour-4);
+    background-image: -ms-linear-gradient(top, $colour-3, $colour-4);
+    background-image: -o-linear-gradient(top, $colour-3, $colour-4);
+    background-image: linear-gradient(to bottom, $colour-3, $colour-4);
+}
+
+/*================================= SITE RESET ===============================*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain) */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/*================================= COLUMNS =================================*/
+
+[class*="col-"] { 
+    float: left;
+}
+
+.col-d-1    {width: 8.33%;}
+.col-d-2    {width: 16.66%;} 
+.col-d-3    {width: 25%;}
+.col-d-4    {width: 33.33%;}
+.col-d-5    {width: 41.66%;}
+.col-d-6    {width: 50%;}
+.col-d-7    {width: 58.33%;}
+.col-d-8    {width: 66.66%;}
+.col-d-9    {width: 75%;}
+.col-d-10   {width: 83.33%;}
+.col-d-11   {width: 91.66%;}
+.col-d-12   {width: 100%;}
+
+.small  {height: 40px;}
+.medium {height: 200px;}
+.large  {height: 500px;}
+
+/*================================= BASIC SITE STYLES =======================*/
+
+
+.clearfix {
+    display: block;
+    float: none;
+    clear: both;
+}
+
+.d-hidden, .m-show {
+    display: none;
+}
+
+.container {
+    float: left;
+    background-color: $darkest;
+}
+
+.forced-margin {
+    width: 90%;
+    margin: 0 auto;
+    float: none;
+}
+
+body {
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: $body-colour;
+    line-height: 2em;
+    background-color: $darkest;
+    transition: 0.2s all ease;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 200;
+    padding-top: 10px;
+    line-height: 1.2em;
+    
+    em {
+    font-weight: 400;
+    color: $colour-2;
+    }
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 400;
+    color: $colour-3;
+    padding: 20px;
+}
+
+h3 {
+    font-size: 18px;
+    padding: 10px;
+    color: $colour-2;
+}
+
+h4 {
+    padding-top: 20px;
+    font-size: 18px;
+    color: $colour-1;
+}
+
+h5 {
+    color: $colour-5;
+}
+
+a {
+    color: $colour-5;
+}
+
+a:hover {
+    color: $colour-1;
+    transition: 0.2s all ease;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ SIDEBAR ~~~~~~~~~~~~~~~~~~~~~~*/
+
+.sidebar-holder {
+    height: 100vh;
+    float: left;
+}
+     
+
+.sidebar {
+    overflow: hidden;
+    z-index: 10;
+    background-color: $lightest;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    ul {
+        
+        li {
+            
+            font-size: 18px;
+            margin-left: 15%;
+            padding-top: 20px;
+            
+            a {
+                text-decoration: none;
+                transition: 0.2s all ease;
+            }
+        }
+    }
+}
+
+.logo {
+    height: 100px;
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: solid 1px $medium;
+    
+    h1 {
+        font-size: 1.5vw;
+    }
+}
+
+/*~~~Switch~~~~*/
+
+.switch-holder {
+    padding-top: 10px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    
+    p {
+        display: inline;
+        position: relative;
+        top: -9px;
+        padding: 10px;
+    }
+    
+    h4 {
+        padding-bottom: 30px;
+    }
+    
+    padding-bottom: 20px;
+    border-bottom: solid 1px $medium;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    
+    input {display:none;} /* Hide default HTML checkbox */
+}
+
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $colour-3;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: $colour-2;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px $colour-2;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ NAV ~~~~~~~~~~~~~~~~~~~~~~*/
+
+.nav-holder {
+    height: 100px;
+    float: left;
+}
+
+nav {
+    z-index: 5;
+    background-color: $medium;
+    height: 100px;
+    margin-bottom: 40px;
+    position: fixed;
+    top: 0;
+    left: 5%;
+    overflow: hidden;
+    
+    ul {
+        position: fixed;
+        top: 0;
+        right: 10px;
+        
+        li {
+            display: inline-block;
+            font-size: 20px;
+            letter-spacing: 1px;
+            padding: 10px 40px;
+            margin-top: 30px;
+        }
+    }
+    
+    a {
+        text-decoration: none;
+        color: $colour-2;
+    }
+}
+
+.namebox {
+    display: none;
+    z-index: 30;
+    padding: 10px 30px 30px 30px;
+    @include box-shadow($opacity);
+    background-color: $lightest;
+    position: fixed;
+    top: 100px;
+    right: 3%;
+    
+    input {
+        border: 3px solid $colour-1;
+        box-shadow: none;
+        margin-top: 20px;
+        padding: 5px;
+    }
+}
+
+#user {
+    color: $colour-4;
+    font-weight: 600;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ TABLE ~~~~~~~~~~~~~~~~~~~~~~*/
+
+.sec-table {
+    margin: 40px 0;
+}
+
+#data {
+    position: relative;
+    top: -40px;
+}
+
+.table-holder{
+    background-color: $lightest;
+}
+
+
+table {
+    @include box-shadow($opacity);
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+    td {
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+    }
+    
+    th {
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+    }
+}
+
+.title-row {
+    background-color: $colour-3;
+    color: $darkest;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ WIDGETS ~~~~~~~~~~~~~~~~~~~~~~*/
+
+.sec-widgets {
+    margin-bottom: 40px;
+}
+
+.art-wid {
+    text-align: center;
+    background-color: $lightest;
+    @include box-shadow($opacity);
+    transition: 0.5s all ease;
+    
+    p {
+        border-bottom: 1px solid $body-colour;
+        padding-bottom: 5px;
+        margin: 0 20%;
+    }
+}
+
+.art-wid:hover {
+    background-color: $colour-5;
+    cursor: pointer;
+    transform: translateX(-10px);
+    transition: 0.5s all ease;
+    
+    h3, p {
+        color: $colour-4;
+    }
+    
+}
+
+.w-img {
+    height: 150px;
+    width: auto;
+    text-align: center;
+    padding: 20px 0 10px 0;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ CHART ~~~~~~~~~~~~~~~~~~~~~~*/
+
+.sec-chart {
+    background-color: $darkest;
+}
+
+.art-chart {
+    @include box-shadow($opacity);
+    background-color: $lightest;
+}
+
+.ct-series-a .ct-line,
+.ct-series-a .ct-point {
+  stroke: $colour-2;
+}
+
+.ct-series-b .ct-line,
+.ct-series-b .ct-point {
+  stroke: $colour-3;
+}
+
+.ct-series-c .ct-line,
+.ct-series-c .ct-point {
+  stroke: $colour-4;
+}
+
+.ct-series-a .ct-slice-pie {
+  fill: $colour-1;
+}
+
+.ct-series-b .ct-slice-pie {
+  fill: $colour-4;
+}
+
+.ct-series-c .ct-slice-pie {
+  fill: $colour-3;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ NEWS ~~~~~~~~~~~~~~~~~~~~~~*/
+
+.sec-news {
+    margin: 40px 0;
+}
+
+.art-news {
+    @include box-shadow($opacity);
+    text-align: center;
+    background-color: $lightest;
+    height: auto;
+    
+    p {
+    padding: 20px 20px 30px 20px;
+        text-align: justify;
+    }
+}
+
+.icon-licence {
+    color: $colour-3;
+    font-size: 8px;
+    text-align: center;
+    padding-top: 10px;
+    
+    a {
+        text-decoration: none;
+        color: $colour-4;
+    }
+}
+
+.btn {
+    @include button($colour-1, $colour-2);
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    position: relative;
+    top: -10px;
+    transition: 0.2s all ease;
+}
+
+.btn:hover {
+    @include hover-button($colour-3, $colour-4);
+    text-decoration: none;
+    transition: 0.2s all ease;
+    
+    a {
+        color: #fff;
+    }
+}
+
+/*============================== TABLET ==============================*/
+
+@media screen and (min-width: 680px) and (max-width: 1366px) {
+  
+    .col-t-1  {width: 8.33%;}
+    .col-t-2  {width: 16.66%;}
+    .col-t-3  {width: 25%;}
+    .col-t-4  {width: 33.33%;}
+    .col-t-5  {width: 41.66%;}
+    .col-t-6  {width: 50%;}
+    .col-t-7  {width: 58.33%;}
+    .col-t-8  {width: 66.66%;}
+    .col-t-9  {width: 75%;}
+    .col-t-10 {width: 83.33%;}
+    .col-t-11 {width: 91.66%;}
+    .col-t-12 {width: 100%;}
+    
+    .t-hidden {
+        display: none;
+    }
+    
+    .forced-margin {
+        width: 95%;
+    }    
+    
+    .w-img {
+    height: 100px; 
+}
+    
+    .logo h1 {
+        font-size: 2.5vw;
+        margin: auto auto;
+    }
+    
+    h4, h5 {
+        font-size: 18px;
+    }
+    
+    .art-wid {
+        margin: 0;
+    }
+    
+}
+
+ 
+/*============================== MOBILE ==============================*/
+
+@media screen and (min-width: 180px) and (max-width: 679px) {
+    .col-m-0  {width: 0;}
+    .col-m-1  {width: 8.33%;}
+    .col-m-2  {width: 16.66%;}
+    .col-m-3  {width: 25%;}
+    .col-m-4  {width: 33.33%;}
+    .col-m-5  {width: 41.66%;}
+    .col-m-6  {width: 50%;}
+    .col-m-7  {width: 58.33%;}
+    .col-m-8  {width: 66.66%;}
+    .col-m-9  {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+    
+    .m-hidden {
+        display: none;
+    }
+    
+    .d-hidden {
+        display: inherit;
+    }
+    
+    .m-show {
+        display: inherit;
+    }
+    
+    body {
+        font-size: 10px;
+    }
+    
+    
+    h1 {
+    font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+        padding: 10px;
+        color: $colour-2;
+    }
+
+    h4 {
+        font-size: 16px;
+        color: $colour-1;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+    
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ NAV ~~~~~~~~~~~~~~~~~~~~~~*/
+
+    nav {
+        left: 0;
+        margin: 0;
+        
+        ul {
+            height: 100px;
+            position: fixed;
+            right: 10px;
+            top: 0;
+            float: none;
+            
+            li {
+                font-size: 16px;
+                padding: 10px;
+            }
+            
+            #user {
+                padding: 0;
+            }
+        }
+    }
+    
+    
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ SIDEBAR ~~~~~~~~~~~~~~~~~~~~~~*/    
+    
+    .sidebar-holder {
+        height: 100px;
+        float: left;
+    }
+     
+
+    .sidebar {
+        overflow: hidden;
+        z-index: 1;
+        background-color: $lightest;
+        height: 100px;
+        position: fixed;
+        top: 99px;
+        left: 0;
+        @include box-shadow($opacity);
+    
+        a {
+            text-decoration: none;   
+        }
+        
+        h1 {
+            padding-top: 40px;
+            display: block;
+            font-size: 12px; /*Fallback*/
+            font-size: 5vw;
+            margin: auto 0;
+        }
+            
+        ul {
+            position: fixed;
+            right: 20px;
+            top: 110px;
+            
+            li {
+                width: 65px;
+                display: inline;
+                padding: 0;
+                margin: 0;
+            }
+        }
+        
+    }
+    
+    .logo {
+        height: 100%;
+        width: 40%;
+        float: left;
+        border-bottom: none;
+        border-right: solid 1px $medium;
+    }
+    
+    /*~~~Switch~~~~*/
+
+    .switch-holder {
+        width: 20%;
+        margin: 10px 0 0 10px;
+        float: left;
+        padding: 0;
+        border: none;
+        border-bottom: none;
+        text-align: center;
+    
+        h4 {
+            padding: 10px 0 0 5px;
+        }
+    }
+
+    .switch {
+        position: relative;
+        top: 8px;
+        left: 4px;
+        display: inline-block;
+        width: 50px;
+        height: 30px;
+
+        input {display:none;} /* Hide default HTML checkbox */
+    }
+
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $colour-3;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 23px;
+        width: 23px;
+        left: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: $colour-2;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px $colour-2;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
+    }
+    
+    
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ TABLE ~~~~~~~~~~~~~~~~~~~~~~*/
+
+    
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ WIDGETS ~~~~~~~~~~~~~~~~~~~~~~*/
+    
+    .w-img {
+        height: 100px;
+    }
+    
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ NEWS ~~~~~~~~~~~~~~~~~~~~~~*/
+    
+    .art-news {
+        margin-top: 30px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
